@@ -37,6 +37,9 @@ pico_sdk_init()
 
 add_executable(Pico_TFT_ST7796_LVGL Pico_TFT_ST7796_LVGL.c )
 
+# Pull in LVGL source files via its CMake system
+add_subdirectory(lib/lvgl)
+
 pico_set_program_name(Pico_TFT_ST7796_LVGL "Pico_TFT_ST7796_LVGL")
 pico_set_program_version(Pico_TFT_ST7796_LVGL "0.1")
 
@@ -54,8 +57,10 @@ target_include_directories(Pico_TFT_ST7796_LVGL PRIVATE
 )
 
 # Add any user requested libraries
-target_link_libraries(Pico_TFT_ST7796_LVGL 
-        hardware_spi
+target_link_libraries(Pico_TFT_ST7796_LVGL hardware_spi 
+    hardware_gpio 
+    hardware_timer
+    lvgl
         )
 
 pico_add_extra_outputs(Pico_TFT_ST7796_LVGL)
