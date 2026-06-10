@@ -61,6 +61,8 @@ target_link_libraries(Pico_TFT_ST7796_LVGL hardware_spi
     hardware_gpio 
     hardware_timer
     lvgl
+    lvgl_examples  # Add if your environment splits them
+    lvgl_demos     # Add if your environment splits them
         )
 
 pico_add_extra_outputs(Pico_TFT_ST7796_LVGL)
